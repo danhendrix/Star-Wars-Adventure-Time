@@ -1,0 +1,43 @@
+angular.module('mvp.services', [])
+
+.factory('Auth', function($http, $location) {
+	var signin = function(user) {
+		return $http({
+			method: 'POST',
+			url: '/api/users/signin',
+			data: user
+		}).then(function(resp) {
+			return resp.data;
+		});
+	};
+
+	var signup = function(user) {
+		return $http({
+			method: 'POST',
+			url: '/api/users/signup',
+			data: user
+		}).then(function(resp) {
+			return resp.data;
+		});
+	};
+
+	return {
+		signin: signin,
+		signup: signup
+	};
+})
+
+.factory('Setup', function($http, $location) {
+	var getCharacter = function() {
+		console.log('getCharacter!!!!!!!!')
+		return $http({
+			method: 'GET',
+			url: '/api/setup/setupCharacter'
+		}).then(function(resp) {
+			return resp.data
+		}).catch(function(err) {
+			console.error(err);
+		})
+	}
+	return {getCharacter: getCharacter}
+})
