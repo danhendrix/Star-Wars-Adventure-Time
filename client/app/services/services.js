@@ -2,20 +2,25 @@ angular.module('mvp.services', [])
 
 .factory('Auth', function($http, $location) {
 	var signin = function(user) {
+		console.log('+_+_+_+_+_+_+_+_ ', user)
 		return $http({
 			method: 'POST',
 			url: '/api/users/signin',
-			data: user
+			data: JSON.stringify({user: user}),
+			'content-type': 'application/json'
 		}).then(function(resp) {
 			return resp.data;
-		});
+		}).catch(function(e) {
+			console.error(e)
+		})
 	};
 
 	var signup = function(user) {
 		return $http({
 			method: 'POST',
 			url: '/api/users/signup',
-			data: user
+			data: JSON.stringify({username: user}),
+			'content-type': 'application/json'
 		}).then(function(resp) {
 			return resp.data;
 		});

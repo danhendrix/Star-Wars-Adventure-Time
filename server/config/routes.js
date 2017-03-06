@@ -4,8 +4,12 @@ var setupController = require('../setup/setupController.js');
 var helpers = require('./helpers.js');
 
 module.exports = function(app, express) {
-	app.post('api/users/signin', userController.signin)
-	app.post('api/users/signup', userController.signup)
+	// app.post('/api/users/signin', userController.signin)
+	app.post('/api/users/signin', function() {
+		console.log('hi')
+	})
+
+	app.post('/api/users/signup', userController.signup)
 
 	app.get('/api/setup/setupCharacter', setupController.getCharacter);
 	// app.post('/api/setup/setupController', setupController.selectCharacter);
