@@ -1,7 +1,7 @@
 var User = require('./userModel.js');
 var Q = require('q');
 
-var findUser = Q.nBind(User.findOne, User);
+var findUser = Q.nbind(User.findOne, User);
 var createUser = Q.nbind(User.create, User);
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
 					return user
 				}
 			})
-	}
+	},
 
 	signup: function(req, res, next) {
 		var username = req.body.username;

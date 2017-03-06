@@ -5,9 +5,11 @@ var userSchema = mongoose.Schema({
 	ship: {
 		type: String,
 		default: 'none'
+	},
 	planet: {
 		type: String,
 		default: 'none'
+	}
 })
 
 module.exports = mongoose.model('users', userSchema);
