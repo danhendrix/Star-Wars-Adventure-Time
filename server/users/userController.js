@@ -6,17 +6,18 @@ var createUser = Q.nbind(User.create, User);
 
 module.exports = {
 	signin: function(req, res, next) {
-		var username = req.body;
+		var username = req.body.username;
 		console.log('!!!!!!!!!!!!!!!!!!', username)
 
-		findUser({username})
+		findUser({username: username})
 			.then(user => {
 				if (!user) {
 					throw(new Error('User does not exist!'));
 					res.redirect('/signin')
 				}
 				else {
-					res.send(user)
+					console.log('got here!')
+					res.redirect('/home')
 				}
 			})
 	},

@@ -6,7 +6,7 @@ angular.module('mvp.services', [])
 		return $http({
 			method: 'POST',
 			url: '/api/users/signin',
-			data: JSON.stringify({user: user}),
+			data: JSON.stringify({username: user}),
 			'content-type': 'application/json'
 		}).then(function(resp) {
 			return resp.data;
