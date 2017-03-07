@@ -11,6 +11,7 @@ module.exports = function(app, express) {
 
 	app.get('/api/setup/setupCharacter', setupController.getCharacter);
 	app.get('/api/setup/setupPlanet', setupController.getPlanet);
+	app.get('/api/setup/setupShip', setupController.getShip);
 	// app.post('/api/setup/setupController', setupController.selectCharacter);
 
 	// app.get('api/setup/setupPlanet', setupController.getPlanet);

@@ -1,7 +1,13 @@
 body {
+	background-image: url('../assets/maxresdefault.jpg');
 	margin 10px;
 }
 .red {
 	border: solid 10px;
 	border-color: red;
+}
+
+.option {
+	width: 250px;
+	height: 250px;
 }

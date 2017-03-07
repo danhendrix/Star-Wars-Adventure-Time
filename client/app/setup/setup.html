@@ -1,20 +1,43 @@
 <div class="setup">
+<div class="row">
+<div class="col-xs-4">
 <h3>Select a character</h3>
 <form name="name" ng-submit="getCharacter()">
 <!-- <input type="text" placeholder="name" ng-model="username"> -->
 <button type="submit">Give me some options!</button>
 </form>
-<div class="row">
-	<div class="col-md-4" ng-show="weHaveCharacters">
+	<div ng-show="weHaveCharacters">
 		<h3>{{ character.name }}</h3>
-		<a href="#/planet">
-			<img ng-class="{red: hover}"
-			 ng-mouseover="hover = true"
-			 ng-mouseout="hover = false" 
-			 ng-src="{{ charPic }}"
-			 ng-click="selectCharacter()">
-		</a>
+		<img ng-class="{red: hover}"
+		 ng-mouseover="hover = true"
+		 ng-mouseout="hover = false" 
+		 ng-src="{{ charPic }}"
+		 ng-click="getPlanet()">
 	</div>
-	<div class="col-md-4" ng-show="charPicked">
+	</div>
+	<div class="col-xs-4" ng-show="weHavePlanets">
+		<h3>Select a planet</h3>
+		<form name="planet" ng-submit="getPlanet()">
+		<button type="submit">More Planets!</button>
+		</form>
+		<h3>{{ character.planet }}</h3>
+		<img ng-class="{red: hover}"
+		ng-mouseover="hover = true"
+		ng-mouseout="hover = false"
+		ng-src="{{ planetPic }}"
+		ng-click="getShip()">
+	</div>
+	<div class="col-xs-4" ng-show="weHaveShips">
+		<h3>Select a ship</h3>
+		<form name="ship" ng-submit="getShip()">
+		<button type="submit">More Ships!</button>
+		</form>
+		<h3> {{ character.ship }}</h3>
+		<img class="option" ng-class="{red: hover}"
+		ng-mouseover="hover = true"
+		ng-mouseout="hover = false"
+		ng-src="{{ shipPic }}"
+		ng-click="confirm()">	
+		</div>	
 </div>
 </div>

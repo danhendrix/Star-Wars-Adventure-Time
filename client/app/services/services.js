@@ -57,9 +57,22 @@ angular.module('mvp.services', [])
 		})		
 	}
 
+var getShip = function() {
+	return $http({
+		method: 'GET',
+		url: '/api/setup/setupShip'
+	}).then(function(resp) {
+		return resp.data
+	}).catch(function(err) {
+		console.error(err);
+	})
+}
+
+
 	return {
 		getCharacter: getCharacter,
-		getPlanet: getPlanet
+		getPlanet: getPlanet,
+		getShip: getShip
 	}
 })
 
