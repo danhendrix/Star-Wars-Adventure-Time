@@ -36,4 +36,4 @@
 ehthumbs.db
 
 node_modules
-gettyKeys.js
+client/setup/gettyKeys.js
