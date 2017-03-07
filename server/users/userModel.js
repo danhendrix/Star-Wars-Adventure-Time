@@ -10,6 +10,18 @@ var userSchema = mongoose.Schema({
 	planet: {
 		type: String,
 		default: 'none'
+	},
+	health: {
+		type: Number,
+		default: 100
+	},
+	level: {
+		type: Number,
+		default: 1
+	},
+	credits: {
+		type: Number,
+		default: 1000
 	}
 })
 

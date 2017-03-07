@@ -35,25 +35,26 @@ var getCharacter = function(req, res, next) {
 	});
 }
 
-var possiblePlanets = [1,2];
+	var planets = [{
+		name: 'Yarvin IV',
+		'planetPic': 'https://upload.wikimedia.org/wikipedia/en/6/64/Yavin-4.jpg'
+	},
+	{
+		name: 'Hoth',
+		planetPic: 'https://farm6.staticflickr.com/5759/22400114579_f2c754cf6a_b.jpg'
+	},
+	{
+		name: 'Tatooine',
+		planetPic: 'https://lumiere-a.akamaihd.net/v1/images/open-uri20150608-27674-obj7u0_7c60f729.jpeg?region=0%2C0%2C1200%2C513'
+	}];
 
 var getPlanet = function(req, res, next) {
-	var randomPlanet = Math.floor(Math.random()*possiblePlanets.length);
-	request('http://swapi.co/api/planets/' + possiblePlanets[randomPlanet] + '/', function(err, response, body) {
-		if (!err & response.statusCode === 200) {
-			var planet = JSON.parse(response.body).name;
-			console.log('!!!!!!!!!!!!!!1 ', planet)
-
-			getPicture(JSON.parse(response.body).name,function(resp) {
-				imageUrl = JSON.parse(resp).display_sizes[0].uri;
-				res.send([response.body, JSON.stringify(imageUrl)]);
-			})		
-		}
-		else {
-			res.send(err)
-		}		
-	})
-}
+	console.log(req.body)
+	console.log('getplanet getting called!!!!')
+	var randomPlanet = planets[Math.floor(Math.random()*planets.length)]	;
+	console.log(randomPlanet)
+	res.send(randomPlanet);
+	};
 
 	var ships = [{
 		name: "Death Star",

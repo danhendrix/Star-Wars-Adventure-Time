@@ -1,3 +1,27 @@
-<div>
-Home
+<div class="row">
+	<div class="col-xs-6">
+		<h2 attr="typewrite">Welcome Back {{ character.username }}!</h2>
+	</div>
+	<div class="col-xs-6">
+		<h2>{{ character.character }}</h2>
+	</div>
+</div>
+<div class="row">
+	<div style="display: inline" class="col-xs-6">
+		<h4>Health: {{ character.health }}</h4>
+		<h4>Galactic Credits: {{ character.credits }}</h4>
+		<h4>Level: {{ character.level }}</h4>
+		<h4>Ship: {{character.ship }}</h4>
+		<br>
+		<h2>What would you like to do?</h2>
+			<form name=fight ng-submit="goFight()">
+				<button name='fight' class="btn btn-large">FIGHT</button>
+			</form>
+			<br>
+			<form name="adventure" ng-submit="adventure()">
+			<button name="adventure" class="btn btn-large">ADVENTURE</button>
+			</form>
+	</div>
+	<div class="col-xs-6">
+<!-- 	<h1>Picture of player</h1> -->
 </div>

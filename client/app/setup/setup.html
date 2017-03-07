@@ -7,7 +7,7 @@
 <button type="submit">Give me some options!</button>
 </form>
 	<div ng-show="weHaveCharacters">
-		<h3>{{ character.name }}</h3>
+		<h3>{{ character.character }}</h3>
 		<img ng-class="{red: hover}"
 		 	ng-mouseover="hover = true"
 			ng-mouseout="hover = false"
@@ -21,7 +21,7 @@
 		<button type="submit">More Planets!</button>
 		</form>
 		<h3>{{ character.planet }}</h3>
-		<img ng-class="{red: hover}"
+		<img class="option" ng-class="{red: hover}"
 		ng-mouseover="hover = true"
 		ng-mouseout="hover = false"
 		ng-src="{{ planetPic }}"

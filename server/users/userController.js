@@ -17,7 +17,7 @@ module.exports = {
 				}
 				else {
 					console.log('got here!')
-					res.send('found you')
+					res.send(user)
 				}
 			})
 	},

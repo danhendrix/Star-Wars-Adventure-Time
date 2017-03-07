@@ -1,0 +1,6 @@
+<div class="xs-col-12">
+<h2 style="text-align: center" ng-hide="battleStart" ng-click="startBattle()" >Click here to begin</h2>
+<h3 ng-show=battleStart><pre>{{ battleText }}</pre></h3>
+<h4 ng-show=battleStart>Should you <button class="btn btn-large" ng-click="attack()">ATTACK</button>
+ or would you rather <button class="btn btn-large" ng-click="run()">RUN</button>  Your health is: {{player.health}} {{bandit}}</h4>
+</div>

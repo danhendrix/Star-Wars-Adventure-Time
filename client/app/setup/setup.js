@@ -1,7 +1,7 @@
 angular.module('mvp.setup', [])
 
-.controller('SetupController', function($scope, Setup, $location, Auth) {
-	$scope.character = {};
+.controller('SetupController', function($scope, Setup, $location, Auth, Home) {
+	$scope.character = {level: 1, credits: 1000, health: 100};
 	$scope.character.username = Setup.getUser();
 
 	//character
@@ -41,25 +41,17 @@ angular.module('mvp.setup', [])
 	}]
 
 	$scope.getPlanet = function() {
-		console.log('char got clicked')
 		Setup.getPlanet()
 		.then(function(planet) {
-			console.log('!!!!!!!!! ', planet)
 			if (planet) {
-				$scope.character.planet = JSON.parse(planet[0]).name
-				$scope.planetPic = JSON.parse(planet[1]);
-				console.log($scope.character.planet)
-				$scope.charPicked = true;
+				$scope.character.planet = planet.name;
+				$scope.planetPic = planet.planetPic
 				$scope.weHavePlanets = true;
-			}
-			else {
-				var randomPlanet = Math.floor(Math.random() * 2);
-				$scope.character.planet = backupPlanet[randomPlanet].name
-				$scope.planetPic = backupPlanet[randomPlanet].planetPic
-				$scope.weHavePlanets = true;
+			} else {
+				console.log('try again')
 			}
 		})
-	}
+	};
 
 
 
@@ -67,18 +59,26 @@ angular.module('mvp.setup', [])
 		$scope.planetPicked = true;
 		Setup.getShip()
 		.then(function(ship) {
-			console.log('SHIIIIPPPP ', ship)
-			$scope.character.ship = ship.name;
-			$scope.shipPic = ship.shipPic
-			$scope.weHaveShips = true;
+			if (ship) {
+				console.log('SHIIIIPPPP ', ship)
+				$scope.character.ship = ship.name;
+				$scope.shipPic = ship.shipPic
+				$scope.weHaveShips = true;
+			} else {
+				console.log('try again')
+			}
 		})
 	};
 
 	$scope.confirm = function() {
 		Setup.confirm($scope.character)
+		.then(function(user) {
+			Home.saveCharacter([user, $scope.charPic])
+			$location.path('/home')
+		})
 		.catch(function(err) {
 			console.error(err);
-		})
+		});
 	}
 });
 

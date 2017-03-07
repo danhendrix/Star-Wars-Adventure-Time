@@ -9,8 +9,8 @@ body {
 }
 
 .option {
-	width: 250px;
-	height: 250px;
+	max-width: 250px;
+	max-height: 250px;
 }
 
 h3 {

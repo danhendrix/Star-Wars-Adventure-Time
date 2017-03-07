@@ -9,13 +9,14 @@
 	</head>
 	<body>
 	<div class="container">
-		<h1>Star Wars</h1>
+		<h1 ng-hide = "battle" style="text-align: center">Star Wars</h1>
 
 		<div ng-view></div>
 	</div>
 
 		<script src="lib/angular/angular.js"></script>
 		<script src="lib/angular-route/angular-route.js"></script>
+		<script src="lib/angular-typewrite/dist/angular-typewrite.js"></script>
 		<script src="app/home/home.js"></script>
 		<script src="app/battle/battle.js"></script>
     <script src="app/auth/auth.js"></script>

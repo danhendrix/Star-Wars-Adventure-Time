@@ -1,5 +1,5 @@
 angular.module('mvp', 
-	['mvp.services', 'mvp.auth', 'mvp.setup', 'mvp.home', 'ngRoute'])
+	['mvp.services', 'mvp.auth', 'mvp.setup', 'mvp.home', 'angularTypewrite', 'mvp.battle', 'ngRoute'])
 .config(function($routeProvider, $locationProvider) {
 	$locationProvider.hashPrefix('');
 
@@ -19,4 +19,11 @@ angular.module('mvp',
 		templateUrl: 'app/home/home.html',
 		controller: 'HomeController'
 	})
+	.when('/battle', {
+		templateUrl: 'app/battle/battle.html',
+		controller: 'BattleController'
+	})
+	.otherwise({
+		redirectTo: '/signin'
+	});
 })

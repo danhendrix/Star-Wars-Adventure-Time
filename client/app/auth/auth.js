@@ -1,11 +1,13 @@
 angular.module('mvp.auth', [])
 
-	.controller('AuthController', function($scope, $location, Auth, Setup) {
+	.controller('AuthController', function($scope, $location, Auth, Setup, Home) {
 		$scope.username = '';
 
 		$scope.signin = function() {
 			Auth.signin($scope.username)
 				.then(function(user) {
+					console.log('saving user in signin ', user)
+					Home.saveCharacter(user);
 					$location.path('/home');
 				}).catch(function(e) {
 					console.log('something happened')
