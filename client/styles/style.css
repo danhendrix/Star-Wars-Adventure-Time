@@ -1,7 +1,7 @@
 body {
 	background-image: url('../assets/maxresdefault.jpg');
 	margin 10px;
-	text-decoration-color: white;
+	color: white;
 }
 .red {
 	border: solid 10px;
@@ -11,4 +11,20 @@ body {
 .option {
 	width: 250px;
 	height: 250px;
+}
+
+h3 {
+	color: white;
+}
+
+button {
+	background-color: grey;
+}
+
+input, select, textarea{
+    color: black;
+}
+
+textarea:focus, input:focus {
+    color: black;
 }

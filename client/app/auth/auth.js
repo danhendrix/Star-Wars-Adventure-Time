@@ -1,12 +1,12 @@
 angular.module('mvp.auth', [])
 
-	.controller('AuthController', function($scope, $location, Auth) {
+	.controller('AuthController', function($scope, $location, Auth, Setup) {
 		$scope.username = '';
 
 		$scope.signin = function() {
 			Auth.signin($scope.username)
 				.then(function(user) {
-					$location.path('/setup');
+					$location.path('/home');
 				}).catch(function(e) {
 					console.log('something happened')
 					$location.path('/signin')
@@ -16,10 +16,10 @@ angular.module('mvp.auth', [])
 		$scope.signup = function() {
 			Auth.signup($scope.username)
 				.then(function(user) {
-					$location.path('/setup');
-				}).catch(function(e) {
-					console.error(e);
-				});
+					Setup.initialize(user.username, function(user) {
+						$location.path('/setup')
+					});
+				})
 		};
 
 	})

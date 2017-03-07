@@ -13,16 +13,17 @@ module.exports = {
 			.then(user => {
 				if (!user) {
 					throw(new Error('User does not exist!'));
-					res.redirect('/signin')
+					res.redirect('/#/signin')
 				}
 				else {
 					console.log('got here!')
-					res.redirect('/home')
+					res.send('found you')
 				}
 			})
 	},
 
 	signup: function(req, res, next) {
+		console.log('+++++++++++', req.body)
 		var username = req.body.username;
 
 		findUser({username: username})
@@ -31,9 +32,17 @@ module.exports = {
 					next(new Error('user already exists'));
 				}
 				else {
-					res.send(200);
-					return createUser({username: username});
+					res.send({username: username});
 				};
 			})
-	}
+	},
+
+	confirm: function(req, res, next) {
+		createUser(req.body)
+		.then(function() {
+			res.send('User Addex')
+		}).catch(function(err) {
+			console.error(err);
+		})
+	}	
 }

@@ -84,7 +84,9 @@ var getPlanet = function(req, res, next) {
 	var randomShip = ships[Math.floor(Math.random()*ships.length)];
 	console.log(randomShip)
 	res.send(randomShip);
-	}
+	};
+
+
 
 module.exports = {
 	getCharacter: getCharacter,

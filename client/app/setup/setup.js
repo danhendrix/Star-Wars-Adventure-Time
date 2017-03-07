@@ -1,7 +1,8 @@
 angular.module('mvp.setup', [])
 
-.controller('SetupController', function($scope, Setup, $location) {
+.controller('SetupController', function($scope, Setup, $location, Auth) {
 	$scope.character = {};
+	$scope.character.username = Setup.getUser();
 
 	//character
 	$scope.weHaveCharacters = false;
@@ -22,7 +23,7 @@ angular.module('mvp.setup', [])
 	$scope.getCharacter = function() {
 		Setup.getCharacter()
 		.then(function(character) {
-			$scope.character.name = JSON.parse(character[0]).name
+			$scope.character.character = JSON.parse(character[0]).name
 			$scope.charPic = JSON.parse(character[1])
 			$scope.weHaveCharacters = true;
 		}).catch(function(err) {
@@ -71,9 +72,15 @@ angular.module('mvp.setup', [])
 			$scope.shipPic = ship.shipPic
 			$scope.weHaveShips = true;
 		})
-	}
+	};
 
-	$scope.selectShip = function() {
-		$scope.shipPicked = true;
+	$scope.confirm = function() {
+		Setup.confirm($scope.character)
+		.catch(function(err) {
+			console.error(err);
+		})
 	}
-})
+});
+
+
+

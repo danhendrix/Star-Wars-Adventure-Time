@@ -1,5 +1,5 @@
 angular.module('mvp', 
-	['mvp.services', 'mvp.auth', 'mvp.setup', 'ngRoute'])
+	['mvp.services', 'mvp.auth', 'mvp.setup', 'mvp.home', 'ngRoute'])
 .config(function($routeProvider, $locationProvider) {
 	$locationProvider.hashPrefix('');
 
@@ -14,5 +14,9 @@ angular.module('mvp',
 	.when('/setup', {
 		templateUrl: 'app/setup/setup.html',
 		controller: 'SetupController'
+	})
+	.when('/home', {
+		templateUrl: 'app/home/home.html',
+		controller: 'HomeController'
 	})
 })

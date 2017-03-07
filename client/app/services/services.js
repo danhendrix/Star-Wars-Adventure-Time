@@ -22,6 +22,7 @@ angular.module('mvp.services', [])
 			data: JSON.stringify({username: user}),
 			'content-type': 'application/json'
 		}).then(function(resp) {
+			console.log('heres the server response ', resp)
 			return resp.data;
 		});
 	};
@@ -33,6 +34,18 @@ angular.module('mvp.services', [])
 })
 
 .factory('Setup', function($http, $location) {
+
+	var user = null;
+
+	var initialize = function(username, callback) {
+		user = username;
+		callback(user);
+	}
+
+	var getUser = function() {
+		return user;
+	}
+
 	var getCharacter = function() {
 		console.log('getCharacter!!!!!!!!')
 		return $http({
@@ -68,11 +81,27 @@ var getShip = function() {
 	})
 }
 
+var confirm = function(user) {
+	return $http({
+		method: 'POST',
+		url: 'api/setup/saveCharacter',
+		data: JSON.stringify(user),
+		'content-type': 'application/json'
+	}).then(function(resp) {
+		$location.path('/home');
+	}).catch(function(err) {
+		console.error(err);
+	})
+}
+
 
 	return {
 		getCharacter: getCharacter,
 		getPlanet: getPlanet,
-		getShip: getShip
+		getShip: getShip,
+		confirm: confirm,
+		initialize: initialize,
+		getUser: getUser
 	}
 })
 
