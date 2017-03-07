@@ -1,0 +1,7 @@
+body {
+	margin 10px;
+}
+.red {
+	border: solid 10px;
+	border-color: red;
+}

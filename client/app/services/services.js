@@ -44,5 +44,29 @@ angular.module('mvp.services', [])
 			console.error(err);
 		})
 	}
-	return {getCharacter: getCharacter}
+
+	var getPlanet = function() {
+		console.log('getPlanet!!!!!!!!')
+		return $http({
+			method: 'GET',
+			url: '/api/setup/setupPlanet'
+		}).then(function(resp) {
+			return resp.data
+		}).catch(function(err) {
+			console.error(err);
+		})		
+	}
+
+	return {
+		getCharacter: getCharacter,
+		getPlanet: getPlanet
+	}
 })
+
+
+
+
+
+
+
+

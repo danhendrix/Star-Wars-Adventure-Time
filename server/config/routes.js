@@ -10,6 +10,7 @@ module.exports = function(app, express) {
 	app.post('/api/users/signup', userController.signup)
 
 	app.get('/api/setup/setupCharacter', setupController.getCharacter);
+	app.get('/api/setup/setupPlanet', setupController.getPlanet);
 	// app.post('/api/setup/setupController', setupController.selectCharacter);
 
 	// app.get('api/setup/setupPlanet', setupController.getPlanet);

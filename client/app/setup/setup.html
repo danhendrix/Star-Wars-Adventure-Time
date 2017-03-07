@@ -1,7 +1,20 @@
 <div class="setup">
-<h3>Enter your name to play: </h3>
-<form name="name" ng-submit="submitName">
-<input type="text" placeholder="name" ng-model="username">
-<button type="submit"
+<h3>Select a character</h3>
+<form name="name" ng-submit="getCharacter()">
+<!-- <input type="text" placeholder="name" ng-model="username"> -->
+<button type="submit">Give me some options!</button>
 </form>
+<div class="row">
+	<div class="col-md-4" ng-show="weHaveCharacters">
+		<h3>{{ character.name }}</h3>
+		<a href="#/planet">
+			<img ng-class="{red: hover}"
+			 ng-mouseover="hover = true"
+			 ng-mouseout="hover = false" 
+			 ng-src="{{ charPic }}"
+			 ng-click="selectCharacter()">
+		</a>
+	</div>
+	<div class="col-md-4" ng-show="charPicked">
+</div>
 </div>
