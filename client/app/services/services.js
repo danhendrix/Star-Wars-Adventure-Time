@@ -1,6 +1,6 @@
 angular.module('mvp.services', [])
 
-.factory('Auth', function($http, $location) {
+.factory('Auth', function($http, $location, Setup) {
 	var signin = function(user) {
 		console.log('+_+_+_+_+_+_+_+_ ', user)
 		return $http({
@@ -110,8 +110,8 @@ var confirm = function(user) {
 .factory('Home', function(Setup, $location) {
 	var character = null;
 	var saveCharacter = function(newCharacter) {
-		console.log('character saving in Home')
-		character = newCharacter[0];
+		console.log('character saving in Home', newCharacter)
+		character = newCharacter;
 	};
 
 	var initialize = function() {

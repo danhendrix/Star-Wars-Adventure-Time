@@ -26,6 +26,7 @@ var getCharacter = function(req, res, next) {
 			getPicture(JSON.parse(response.body).name,function(resp) {
 				imageUrl = JSON.parse(resp).display_sizes[0].uri;
 				res.send([response.body, JSON.stringify(imageUrl)]);
+				// res.send(response.body);
 			})
 			// res.send([response.body, imageUrl]);			
 		}

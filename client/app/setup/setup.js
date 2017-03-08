@@ -73,7 +73,7 @@ angular.module('mvp.setup', [])
 	$scope.confirm = function() {
 		Setup.confirm($scope.character)
 		.then(function(user) {
-			Home.saveCharacter([user, $scope.charPic])
+			Home.saveCharacter(user)
 			$location.path('/home')
 		})
 		.catch(function(err) {
