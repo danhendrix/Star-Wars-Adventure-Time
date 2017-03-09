@@ -44,7 +44,7 @@ angular.module('mvp.services', [])
 
 	var getUser = function() {
 		return user;
-	}
+	}	
 
 	var getCharacter = function() {
 		console.log('getCharacter!!!!!!!!')
@@ -83,6 +83,7 @@ var getShip = function() {
 }
 
 var confirm = function(user) {
+	console.log('trying to confirm user ', user)
 	return $http({
 		method: 'POST',
 		url: 'api/setup/saveCharacter',
@@ -218,7 +219,7 @@ var confirm = function(user) {
 		var fight = true;
 		var damage = Math.floor(Math.random() * player.level * 20);
 		player.health -= damage;
-		message = 'Not so fast young Jedi. He got you for ' + getDamage() + '. Ouch';
+		message = 'Not so fast young Jedi. He got you for ' + damage + '. Ouch';
 		if (player.health <= 0) {
 			console.log(player.health)
 			fight = false;
