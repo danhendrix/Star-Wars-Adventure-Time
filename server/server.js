@@ -2,8 +2,12 @@ var express = require('express');
 var mongoose = require('mongoose');
 
 var app = express();
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost/mvp');
+//local
+// mongoose.connect('mongodb://localhost/mvp');
+console.log('mlab? ', process.env.MLAB)
+mongoose.connect(process.env.MLAB);
 
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
