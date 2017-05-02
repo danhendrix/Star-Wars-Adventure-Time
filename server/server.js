@@ -6,8 +6,8 @@ require('dotenv').config();
 
 //local
 // mongoose.connect('mongodb://localhost/mvp');
-console.log('mlab? ', process.env.MLAB)
-mongoose.connect(process.env.MLAB);
+
+mongoose.connect(process.env.MONGODB_URI);
 
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
