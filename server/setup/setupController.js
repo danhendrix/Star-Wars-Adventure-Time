@@ -1,5 +1,4 @@
 var Q = require('q');
-var gettyKeys = require('./gettyKeys.js');
 var request = require('request');
 var api = require("gettyimages-api");
 var creds = { apiKey: process.env.APIKEY, apiSecret: process.env.APISECRET, username: process.env.USERNAME, password: process.env.PASSWORD };
